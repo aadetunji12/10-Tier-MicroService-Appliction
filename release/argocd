@@ -1,0 +1,14 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/aadetunji12/10-Tier-MicroService-Appliction.git
+    targetRevision: main
+    path: release  # Make sure this points to the correct directory
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
