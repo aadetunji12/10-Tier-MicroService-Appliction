@@ -857,4 +857,18 @@ spec:
   - name: grpc
     port: 9555
     targetPort: 9555
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/aadetunji12/10-Tier-MicroService-Appliction.git
+    targetRevision: main
+    path: release/kubernetes-manifests.yaml  # Make sure this points to the correct directory
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
 # [END gke_release_kubernetes_manifests_microservices_demo]
